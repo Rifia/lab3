@@ -26,31 +26,31 @@ public: vector3D(int _a, int _b, int _c = 2) { //с параметрами
 
 
 public: void inputVector()
-	{
-	
-		cout << "Введите целое число а: ";
-		cin >> a;
-		cout << "Введите целое число b: ";
-		cin >> b;
-		cout << "Введите целое число c: ";
-		cin >> c;
-	}
+{
 
-	void outputVector()
-	{
-		cout << "a = " << a << endl;
-		cout << "b = " << b << endl;
-		cout << "c = " << c << endl;
-	}
+	cout << "а(int): ";
+	cin >> a;
+	cout << "b(int): ";
+	cin >> b;
+	cout << "c(int): ";
+	cin >> c;
+}
+
+		void outputVector()
+		{
+			cout << "a = " << a << endl;
+			cout << "b = " << b << endl;
+			cout << "c = " << c << endl;
+		}
 
 public:	int getA() { return a; }
 		int getB() { return b; }
 		int getC() { return c; }
 
 public: void setA(int _a)
-		{
-			a = _a;
-		}
+{
+	a = _a;
+}
 		void setB(int _b)
 		{
 			b = _b;
@@ -60,9 +60,10 @@ public: void setA(int _a)
 			c = _c;
 		}
 
-
-		
-
-
+friend std::ostream& operator<<(std::ostream& s, vector3D& v)
+		{
+			s <<"("<< v.getA() << "; " << v.getB() << "; " << v.getC() <<")"<<endl;
+			return s;
+		}
 
 };
