@@ -20,9 +20,9 @@ protected:
 	int n;
 	int d;
 public:
-	Pair() :n(1), d(1) {} //конструктор с параметрами
-	Pair(int A, int B) : n(A), d(B) {} //инициализация
-	~Pair() {} //деструктор
+	Pair() :n(1), d(1) {}
+	Pair(int A, int B) : n(A), d(B) {}
+	~Pair() {} 
 };
 class Rational :public Pair {
 private:
@@ -70,7 +70,7 @@ public:
 	{
 		try
 		{
-			if (r.n == 0) throw exception("you tried to divide by zero!\n");
+			if (r.n == 0) throw exception("error: division by zero!\n");
 			Rational frac(n * r.d, d * r.n);
 			frac.reduce();
 			return frac;
@@ -118,8 +118,6 @@ public:
 int main()
 {
 	cout << "enter the fractions like 'a/b': " << endl;
-	//Rational x(1, 2), y(0, 1);
-	//Rational z = x.div(y); //две дроби по умолчанию и выброс эксепшена
 
 	Rational first, second, for_reduce;
 
