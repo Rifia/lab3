@@ -1,10 +1,6 @@
-// ConsoleApplication2.cpp : Defines the entry point for the console application.
-//
-
 #include "stdafx.h"
 #include "vector3D.h"
 using namespace std;
-
 
 int main()
 {
@@ -12,11 +8,9 @@ int main()
 
 	vector3D vector1;
 
-	vector3D v;
-	cout << v;
+	vector1.inputVector();
 
-	vector1.inputVector();   //присвоим новые значения переменным
-	vector1.outputVector();
+	cout << vector1;
 	system("pause");
 
 }
