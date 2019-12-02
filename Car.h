@@ -32,5 +32,12 @@ public: void setEngine(Engine e) { engine = e; }
 		void setNumber(string num) { number = num; }
 		void setColor(string c) { color = c; }
 		void setCurrentSpeed(int cs) { current_speed = cs; }
+	
+friend ostream& operator<<(ostream& s, Car& c)
+	{
+		s << "Car: engine = " << e.getEngine() << ", number = " << e.getNumber() << ", color = " << e.getColor() << ", current speed = " << e.getCurrentSpeed() << "." << endl;
+		return s;
+	}
+
 
 };
