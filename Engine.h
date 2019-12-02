@@ -25,6 +25,7 @@ public: Engine(int p, int s, int v, string f){
 
 public: int acceleration(int fv) {
 	speed *= fv;
+	return speed;
 }
 
 public: int getPower()   { return power; };
