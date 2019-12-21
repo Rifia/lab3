@@ -1,50 +1,62 @@
 #pragma once
 #include <string>
+#include <iostream>
 using namespace std;
 
 
 class Engine {
 
 private:
-	int power, speed, fuel_vol;
+	int power, num_revol, fuel_vol;
 	string fuel;
 
-public: Engine(){
+public: Engine() {
 	power = 0;
-	speed = 0;
+	num_revol = 0;
 	fuel_vol = 0;
 	fuel = "default";
 }
 
-public: Engine(int p, int s, int v, string f){
+public: Engine(int p, int nr, int v, string f) {
 	power = p;
-	speed = s;
+	num_revol = nr;
 	fuel_vol = v;
 	fuel = f;
 }
 
-public: int acceleration(int fv) {
-	speed *= fv;
-	return speed;
+public: void acceleration(int fv) {
+	num_revol += fv * 5;
 }
 
-public: int getPower()   { return power; };
-		int getSpeed()   { return speed; };
+public: int getPower() { return power; };
+		int getNumRevol() { return num_revol; };
 		int getFuelVol() { return fuel_vol; };
-		string getFuel() { return fuel;  };
+		string getFuel() { return fuel; };
 
-public: void setPower(int p)   { power = p; }
-		void setSpeed(int s)   { speed = s; }
+public: void setPower(int p) { power = p; }
+		void setNumRevol(int s) { num_revol = s; }
 		void setFuelVol(int v) { fuel_vol = v; }
 		void setFuel(string f) { fuel = f; }
 
-friend ostream& operator<<(ostream& s, Engine& e)
+		friend ostream& operator<<(ostream& s, Engine& e)
+		{
+			s << "Engine: power = " << e.getPower() << ", speed = " << e.getNumRevol() << ", fuel volume = " << e.getFuelVol() << ", fuel type = " << e.getFuel() << "." << endl;
+			return s;
+		}
+
+public: void inputEngine()
 {
-	s << "Engine: power = " << e.getPower() << ", speed = " << e.getSpeed() << ", fuel volume = " << e.getFuelVol() << ", fuel type = " << e.getFuel() << "." << endl;
-	return s;
+
+	cout << "input engine parameters" << endl;
+	cout << "power(int): ";
+	cin >> power;
+	cout << "fuel(string): ";
+	cin >> fuel;
+	cout << "number of revolutions(int): ";
+	cin >> num_revol;
+	cout << "fuel volume(): ";
+	cin >> fuel_vol;
 }
 
 };
-
-
 
